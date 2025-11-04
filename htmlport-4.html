@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио разработчика</title>
+    <!-- Подключаем Normalize.css для сброса стилей браузера -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <!-- Подключаем Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Подключаем наши кастомные стили -->
+    <link rel="stylesheet" href="cssport-4.css">
+</head>
+<body>
+    <!-- Панель погоды - фиксированная сбоку -->
+    <aside class="weather-panel">
+        <div class="weather-container">
+            <!-- Заголовок панели погоды -->
+            <div class="weather-header">
+                <i class="fas fa-cloud-sun weather-icon"></i>
+                <h3 class="weather-title">Погода в Калининграде</h3>
+            </div>
+            
+            <!-- Основная информация о погоде -->
+            <div class="weather-main">
+                <div class="temperature">+5°C</div>
+                <div class="weather-description">Облачно</div>
+            </div>
+            
+            <!-- Детальная информация о погоде -->
+            <div class="weather-details">
+                <div class="weather-item">
+                    <i class="fas fa-wind"></i>
+                    <span class="weather-value">3 м/с</span>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-tint"></i>
+                    <span class="weather-value">75%</span>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-temperature-low"></i>
+                    <span class="weather-value">+3°C</span>
+                </div>
+            </div>
+            
+            <!-- Прогноз на следующие дни -->
+            <div class="weather-forecast">
+                <div class="forecast-item">
+                    <div class="forecast-day">Ср</div>
+                    <i class="fas fa-cloud-rain forecast-icon"></i>
+                    <div class="forecast-temp">+4°</div>
+                </div>
+                <div class="forecast-item">
+                    <div class="forecast-day">Чт</div>
+                    <i class="fas fa-cloud forecast-icon"></i>
+                    <div class="forecast-temp">+6°</div>
+                </div>
+                <div class="forecast-item">
+                    <div class="forecast-day">Пт</div>
+                    <i class="fas fa-sun forecast-icon"></i>
+                    <div class="forecast-temp">+8°</div>
+                </div>
+            </div>
+            
+            <!-- Время обновления -->
+            <div class="weather-update">
+                <i class="fas fa-sync-alt update-icon"></i>
+                <span class="update-text">Обновлено только что</span>
+            </div>
+        </div>
+    </aside>
+        <!-- Панель погоды - фиксированная с правой стороны -->
+    aside class="weather-panel">
+        <!-- твоя существующая панель погоды -->
+    </aside>
+
+    <!-- НОВАЯ ПАНЕЛЬ НОВОСТЕЙ - добавляем этот код -->
+    <aside class="news-panel">
+        <div class="news-container">
+            <!-- Заголовок панели новостей -->
+            <div class="news-header">
+                <i class="fas fa-newspaper news-icon"></i>
+                <h3 class="news-title">Последние новости</h3>
+            </div>
+            
+            <!-- Список новостей -->
+            <div class="news-list">
+                <!-- Новость 1 -->
+                <article class="news-item">
+                    <div class="news-time">10:30</div>
+                    <h4 class="news-headline">В Калининграде открылся новый IT-парк</h4>
+                    <p class="news-preview">Современный центр для разработчиков и стартапов...</p>
+                </article>
+                
+                <!-- Новость 2 -->
+                <article class="news-item">
+                    <div class="news-time">09:15</div>
+                    <h4 class="news-headline">JavaScript стал самым популярным языком</h4>
+                    <p class="news-preview">Согласно исследованию Stack Overflow 2024...</p>
+                </article>
+                
+                <!-- Новость 3 -->
+                <article class="news-item">
+                    <div class="news-time">Вчера</div>
+                    <h4 class="news-headline">Российские разработчики создали новый фреймворк</h4>
+                    <p class="news-preview">Инновационное решение для веб-разработки...</p>
+                </article>
+            </div>
+            
+            <!-- Кнопка обновления -->
+            <div class="news-update">
+                <i class="fas fa-sync-alt news-update-icon"></i>
+                <span class="news-update-text">Автообновление</span>
+            </div>
+        </div>
+    </aside>
+    <!-- Основной контейнер всей страницы -->
+    <div class="portfolio-container">
+        
+        <!-- Верхняя секция - профиль пользователя -->
+        <header class="user-profile">
+            
+            <!-- Контейнер для аватара пользователя -->
+            <div class="user-avatar-container">
+                <!-- Аватар пользователя - замените src на путь к вашей фотографии -->
+                <img src="avaRn.jpg" 
+                     alt="Фото Руслана" 
+                     class="user-avatar">
+                <!-- Декоративная рамка вокруг аватара -->
+                <div class="avatar-frame"></div>
+            </div>
+            
+            <!-- Блок с основной информацией о пользователе -->
+            <div class="user-info">
+                <!-- Имя пользователя -->
+                <h1 class="user-name">Руслан Исмаилов</h1>
+                <!-- Должность/специализация -->
+                <p class="user-title">Веб-разработчик</p>
+                <!-- Описание/о себе -->
+                <p class="user-description">
+                    Веб-разработчик. Создаю современные адаптивные сайты с использованием HTML, CSS и JavaScript.
+                </p>
+            </div>
+            
+            <!-- Блок с контактной информацией -->
+            <div class="user-contacts">
+                <!-- Элемент контакта - email -->
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span class="contact-value">raykinney677@mail.ru</span>
+                </div>
+                <!-- Элемент контакта - телефон -->
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <span class="contact-value">+7 (931) 607-77-68</span>
+                </div>
+                <!-- Элемент контакта - местоположение -->
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <span class="contact-value">Калининград, Россия</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основная секция - сертификаты и достижения -->
+        <main class="certificates-section">
+            <!-- Заголовок секции сертификатов -->
+            <h2 class="section-title">Мои Сертификаты и Достижения</h2>
+            
+            <!-- Сетка для карточек сертификатов -->
+            <div class="certificates-grid">
+                
+                <!-- Карточка сертификата 1 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Основы языка Java</h3>
+                    <p class="certificate-description">Курс по основам языка Java с практикой</p>
+                    <a href="https://stepik.org/cert/2767874" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 2 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Язык программирование PHP</h3>
+                    <p class="certificate-description">Базовые понятия программирование PHP</p>
+                    <a href="https://intuit.ru/verifydiplomas/101700214" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 3 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Введение в разработку приложений для ОС Android</h3>
+                    <p class="certificate-description">Вводный курс в раз приложений лоя ОС Android</p>
+                    <a href="https://intuit.ru/verifydiplomas/101717229" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 4 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Основы верстки Сайта</h3>
+                    <p class="certificate-description">Основые и базовые понятия верстки сайта</p>
+                    <a href="https://netology.ru/sharing/8a68cc5203c700c402eff1427aab0b8a?utm_source=social&utm_campaign=certificate_lms " class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 5 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">SQL & Databases</h3>
+                    <p class="certificate-description">Работа с базами данных</p>
+                    <a href="https://example.com/cert5" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 6 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Cloud Architecture</h3>
+                    <p class="certificate-description">AWS и облачные технологии</p>
+                    <a href="https://example.com/cert6" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 7 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Web Security</h3>
+                    <p class="certificate-description">Безопасность веб-приложений</p>
+                    <a href="https://example.com/cert7" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 8 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">Mobile Development</h3>
+                    <p class="certificate-description">React Native разработка</p>
+                    <a href="https://example.com/cert8" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 9 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">DevOps Engineer</h3>
+                    <p class="certificate-description">CI/CD и автоматизация</p>
+                    <a href="https://example.com/cert9" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+                <!-- Карточка сертификата 10 -->
+                <article class="certificate-card">
+                    <div class="certificate-icon">
+                        <i class="fas fa-award" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="certificate-title">UI/UX Design</h3>
+                    <p class="certificate-description">Дизайн интерфейсов</p>
+                    <a href="https://example.com/cert10" class="certificate-link" target="_blank" rel="noopener">
+                        Посмотреть сертификат
+                    </a>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- Нижняя секция - образование и дополнительная информация -->
+        <footer class="info-section">
+            <footer class="info-container">
+                <!-- Заголовок секции образования -->
+                <h2 class="info-title">Образование и Квалификация</h2>
+                
+                <!-- Сетка для информационных блоков -->
+                <div class="info-grid">
+                    
+                    <!-- Блок с высшим образованием -->
+                    <section class="info-block">
+                        <h3 class="info-subtitle">
+                            <i class="fas fa-graduation-cap info-icon" aria-hidden="true"></i>
+                            Высшее образование
+                        </h3>
+                        <div class="education-list">
+                            <div class="education-item">
+                                <h4 class="education-degree">Магистр компьютерных наук</h4>
+                                <p class="institution">МГТУ им. Баумана • 2018</p>
+                                <p class="education-description">Специализация в области веб-технологий и искусственного интеллекта. Диплом с отличием.</p>
+                            </div>
+                            <div class="education-item">
+                                <h4 class="education-degree">Бакалавр информатики</h4>
+                                <p class="institution">МГУ • 2016</p>
+                                <p class="education-description">Фундаментальное образование в области компьютерных наук и математики.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Блок с дополнительным образованием -->
+                    <section class="info-block">
+                        <h3 class="info-subtitle">
+                            <i class="fas fa-certificate info-icon" aria-hidden="true"></i>
+                            Курсы и сертификации
+                        </h3>
+                        <div class="education-list">
+                            <div class="education-item">
+                                <h4 class="education-degree">Frontend Advanced</h4>
+                                <p class="institution">HTML Academy • 2022</p>
+                                <p class="education-description">Продвинутый курс по современному фронтенд разработке.</p>
+                            </div>
+                            <div class="education-item">
+                                <h4 class="education-degree">Backend Development</h4>
+                                <p class="institution">Yandex Practicum • 2021</p>
+                                <p class="education-description">Интенсив по серверной разработке и архитектуре приложений.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </footer>
+            <footer class="site-footer">
+    <div class="footer-content">
+        <!-- Блок социальных сетей -->
+        <div class="social-section">
+            <h3 class="social-title">Свяжитесь со мной</h3>
+            <div class="social-links">
+                <!-- Ссылка на GitHub -->
+                <a href="https://github.com/yourusername" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <!-- Ссылка на Telegram -->
+                <a href="https://t.me/rsln28" class="social-link" target="_blank" rel="noopener" aria-label="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <!-- Ссылка на VK -->
+                <a href="https://vk.com/rrokka" class="social-link" target="_blank" rel="noopener" aria-label="VK">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <!-- Ссылка на WhatsApp -->
+                <a href="https://wa.me/79316077768" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Кнопка email -->
+        <div class="email-section">
+            <p>Есть вопросы? Напишите мне!</p>
+            <a href="mailto:твоя_почта@example.com" class="email-button">
+                ✉️ Связаться со мной
+            </a>
+        </div>
+
+        <!-- Подпись и копирайт -->
+        <div class="footer-bottom">
+            <p class="design-text">desing by Ruslan Ismailov</p>
+            <p class="copyright">© 2024 Все права защищены</p>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="jsport-4.js"></script>
+    <script src="newsjs.js"></script>
+</body>
+</html>
