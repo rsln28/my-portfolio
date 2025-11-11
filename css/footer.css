@@ -1,0 +1,420 @@
+/* ===== НИЖНЯЯ СЕКЦИЯ - ОБРАЗОВАНИЕ И ФУТЕР ===== */
+.info-section {
+    padding: var(--spacing-3xl) var(--spacing-md);
+    background: var(--background-white);
+    position: relative;
+    z-index: var(--z-index-sticky);
+}
+
+.info-container {
+    max-width: var(--container-7xl);
+    margin: 0 auto;
+    border-radius: 40px
+}
+
+.info-title {
+    text-align: center;
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-3xl);
+    color: var(--text-dark);
+    font-weight: var(--font-weight-light);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-1xl);
+}
+
+.info-block {
+    background: var(--background-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.info-subtitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+.info-icon {
+    color: var(--secondary-color);
+}
+
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.education-item {
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.education-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.education-degree {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.institution {
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.education-description {
+    color: var(--text-medium);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Стили для кнопок просмотра сертификатов */
+.certificate-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.certificate-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--secondary-color);
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--duration-normal);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.certificate-button:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-white);
+}
+
+.certificate-button i {
+    font-size: var(--font-size-base);
+}
+
+/* Социальные сети в футере */
+.social-section {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background: var(--background-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.social-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-dark);
+    font-weight: var(--font-weight-normal);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-secondary);
+    color: var(--text-white);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all var(--duration-normal);
+    font-size: var(--font-size-3xl);
+    box-shadow: var(--shadow-md);
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.social-link:nth-child(1):hover { background: var(--gradient-dark); }
+.social-link:nth-child(2):hover { background: linear-gradient(135deg, #0088cc, #005580); }
+.social-link:nth-child(3):hover { background: linear-gradient(135deg, #4c75a3, #2a4d7a); }
+.social-link:nth-child(4):hover { background: linear-gradient(135deg, #25d366, #128c7e); }
+
+.design-credit {
+    text-align: center;
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-light);
+}
+
+.design-text {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
+    font-weight: var(--font-weight-light);
+    text-align: left;
+
+}
+
+/* Адаптивность футера */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .info-section {
+        padding: var(--spacing-2xl) var(--spacing-sm);
+    }
+    
+    .info-block {
+        padding: var(--spacing-lg);
+    }
+    
+    .info-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .social-links {
+        gap: var(--spacing-md);
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-lg);
+    }
+    
+    .certificate-buttons {
+        flex-direction: column;
+    }
+    
+    .certificate-button {
+        justify-content: center;
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .info-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .info-subtitle {
+        font-size: var(--font-size-lg);
+    }
+    
+    .social-section {
+        padding: var(--spacing-lg);
+    }
+    
+    .social-title {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* Дополнительные базовые стили для корректного отображения */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: var(--line-height-normal);
+    color: var(--text-dark);
+    background-color: var(--background-white);
+}
+/* Стили для email секции */
+/* Общий футер */
+footer {
+    background: var(--background-light);
+    padding: var(--spacing-2xl) 0;
+    box-shadow: var(--shadow-lg);
+}
+
+.footer-container {
+    max-width: var(--container-7xl);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.footer-content {
+    text-align: center;
+    background: var(--background-white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+}
+
+.footer-content h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+    font-weight: var(--font-weight-semibold);
+}
+
+.footer-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-white);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-relaxed);
+}
+
+.email-button {
+    width: 290px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--duration-normal);
+    box-shadow: var(--shadow-lg);
+     justify-content: center;
+}
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .email-button {
+        width: 100%; /* Занимает всю доступную ширину */
+        max-width: 280px; /* Максимальная ширина на мобильных */
+        height: 70px; /* Немного меньше высота */
+        font-size: var(--font-size-md); /* Чуть меньше текст */
+        padding: var(--spacing-sm) var(--spacing-xl);
+        margin: 0 auto; /* Центрирование */
+        display: flex; /* Меняем на flex для лучшего контроля */
+    }
+}
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .email-button {
+        height: 60px;
+        font-size: var(--font-size-sm);
+        max-width: 250px;
+    }
+}
+
+.email-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-3xl);
+    background: var(--gradient-secondary);
+}
+
+.footer-bottom {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-light);
+}
+
+.design-text {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: var(--spacing-xs);
+}
+
+.copyright {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin: 0;
+    text-align: left;
+
+}
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer-actions {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-title {
+        font-size: var(--font-size-2xl);
+    }
+}
+.site-footer {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    padding: 0;
+    box-shadow: var(--shadow-lg);
+    border-radius: 40px 40px 40px 40px;
+    margin: 20px 20px 0 20px;
+    overflow: hidden; /* Обрезает всё, что выходит за скругленные углы */
+}
+
+
+.footer-content {
+    max-width: 100%; /* Убираем ограничение по ширине */
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+    background: linear-gradient(-45deg, #667eea, #857a91, #17b18a, #f5576c);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+    border-radius: 40px;
+    box-shadow: none; /* Убираем тень */
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.footer-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-white);
+    font-weight: var(--font-weight-semibold);
+}
+
+.footer-subtitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+    color: #ffffff; /* Белый цвет */
+    font-weight: 600; /* Полужирный */
+    line-height: var(--line-height-relaxed);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Легкая тень для лучшей читаемости */
+}
+.footer-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+    flex-wrap: wrap;
+}

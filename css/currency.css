@@ -1,0 +1,123 @@
+/* Стили для панели курсов валют */
+.currency-panel {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.currency-container {
+    padding: 20px;
+}
+
+.currency-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.currency-icon {
+    color: #667eea;
+    font-size: 20px;
+}
+
+.currency-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.currency-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.currency-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.currency-item:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(5px);
+}
+
+.currency-name {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.currency-value {
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 15px;
+}
+
+.currency-change {
+    font-weight: 600;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.currency-change.positive {
+    background: #48bb78;
+    color: white;
+}
+
+.currency-change.negative {
+    background: #f56565;
+    color: white;
+}
+
+.currency-change.neutral {
+    background: #a0aec0;
+    color: white;
+}
+
+.currency-update {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    color: #718096;
+}
+
+.update-icon {
+    font-size: 12px;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .currency-panel {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+}

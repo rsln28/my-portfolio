@@ -9,10 +9,10 @@
     <!-- Подключаем Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Подключаем наши кастомные стили -->
-    <link rel="stylesheet" href="cssport-4.css">
+    <link rel="stylesheet" href="/port-1/port-4/css/style.css">
 </head>
 <body>
-    <!-- Панель погоды - фиксированная сбоку -->
+     <!-- Панель погоды - фиксированная справа -->
     <aside class="weather-panel">
         <div class="weather-container">
             <!-- Заголовок панели погоды -->
@@ -69,51 +69,129 @@
             </div>
         </div>
     </aside>
-        <!-- Панель погоды - фиксированная с правой стороны -->
-    aside class="weather-panel">
-        <!-- твоя существующая панель погоды -->
-    </aside>
 
-    <!-- НОВАЯ ПАНЕЛЬ НОВОСТЕЙ - добавляем этот код -->
-    <aside class="news-panel">
-        <div class="news-container">
-            <!-- Заголовок панели новостей -->
-            <div class="news-header">
-                <i class="fas fa-newspaper news-icon"></i>
-                <h3 class="news-title">Последние новости</h3>
+   
+     <!-- ЛЕВАЯ КОЛОНКА - все 5 панелей новостей -->
+    <div class="news-column">
+        <!-- Панель 1: IT Новости -->
+        <aside class="news-panel news-it">
+            <div class="news-container">
+                <div class="news-header">
+                    <i class="fas fa-laptop-code news-icon"></i>
+                    <h3 class="news-title">IT Новости</h3>
+                </div>
+                <div class="news-list">
+                    <!-- Новости будут добавляться через JavaScript -->
+                </div>
+                <div class="news-update">
+                    <i class="fas fa-sync-alt news-update-icon"></i>
+                    <span class="news-update-text">Автообновление</span>
+                </div>
             </div>
-            
-            <!-- Список новостей -->
-            <div class="news-list">
-                <!-- Новость 1 -->
-                <article class="news-item">
-                    <div class="news-time">10:30</div>
-                    <h4 class="news-headline">В Калининграде открылся новый IT-парк</h4>
-                    <p class="news-preview">Современный центр для разработчиков и стартапов...</p>
-                </article>
-                
-                <!-- Новость 2 -->
-                <article class="news-item">
-                    <div class="news-time">09:15</div>
-                    <h4 class="news-headline">JavaScript стал самым популярным языком</h4>
-                    <p class="news-preview">Согласно исследованию Stack Overflow 2024...</p>
-                </article>
-                
-                <!-- Новость 3 -->
-                <article class="news-item">
-                    <div class="news-time">Вчера</div>
-                    <h4 class="news-headline">Российские разработчики создали новый фреймворк</h4>
-                    <p class="news-preview">Инновационное решение для веб-разработки...</p>
-                </article>
+        </aside>
+
+        <!-- Панель 2: Политика -->
+        <aside class="news-panel news-politics">
+            <div class="news-container">
+                <div class="news-header">
+                    <i class="fas fa-landmark news-icon"></i>
+                    <h3 class="news-title">Политика</h3>
+                </div>
+                <div class="news-list">
+                    <!-- Новости будут добавляться через JavaScript -->
+                </div>
+                <div class="news-update">
+                    <i class="fas fa-sync-alt news-update-icon"></i>
+                    <span class="news-update-text">Автообновление</span>
+                </div>
             </div>
-            
-            <!-- Кнопка обновления -->
-            <div class="news-update">
-                <i class="fas fa-sync-alt news-update-icon"></i>
-                <span class="news-update-text">Автообновление</span>
+        </aside>
+
+        <!-- Панель 3: Спорт -->
+        <aside class="news-panel news-sports">
+            <div class="news-container">
+                <div class="news-header">
+                    <i class="fas fa-running news-icon"></i>
+                    <h3 class="news-title">Спорт</h3>
+                </div>
+                <div class="news-list">
+                    <!-- Новости будут добавляться через JavaScript -->
+                </div>
+                <div class="news-update">
+                    <i class="fas fa-sync-alt news-update-icon"></i>
+                    <span class="news-update-text">Автообновление</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Панель 4: Здоровье -->
+        <aside class="news-panel news-health">
+            <div class="news-container">
+                <div class="news-header">
+                    <i class="fas fa-heartbeat news-icon"></i>
+                    <h3 class="news-title">Здоровье</h3>
+                </div>
+                <div class="news-list">
+                    <!-- Новости будут добавляться через JavaScript -->
+                </div>
+                <div class="news-update">
+                    <i class="fas fa-sync-alt news-update-icon"></i>
+                    <span class="news-update-text">Автообновление</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Панель 5: Технологии -->
+        <aside class="news-panel news-tech">
+            <div class="news-container">
+                <div class="news-header">
+                    <i class="fas fa-robot news-icon"></i>
+                    <h3 class="news-title">Технологии</h3>
+                </div>
+                <div class="news-list">
+                    <!-- Новости будут добавляться через JavaScript -->
+                </div>
+                <div class="news-update">
+                    <i class="fas fa-sync-alt news-update-icon"></i>
+                    <span class="news-update-text">Автообновление</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <!-- Панель курсов валют -->
+<aside class="currency-panel">
+    <div class="currency-container">
+        <div class="currency-header">
+            <i class="fas fa-chart-line currency-icon"></i>
+            <h3 class="currency-title">Курсы валют</h3>
+        </div>
+        
+        <div class="currency-list">
+            <!-- Данные будут добавляться через JavaScript -->
+            <div class="currency-item">
+                <span class="currency-name">USD/RUB</span>
+                <span class="currency-value">—</span>
+                <span class="currency-change">—</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-name">EUR/RUB</span>
+                <span class="currency-value">—</span>
+                <span class="currency-change">—</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-name">CNY/RUB</span>
+                <span class="currency-value">—</span>
+                <span class="currency-change">—</span>
             </div>
         </div>
-    </aside>
+        
+        <div class="currency-update">
+            <i class="fas fa-sync-alt update-icon"></i>
+            <span class="update-text">Обновляется автоматически</span>
+        </div>
+    </div>
+</aside>
+
     <!-- Основной контейнер всей страницы -->
     <div class="portfolio-container">
         
@@ -123,7 +201,7 @@
             <!-- Контейнер для аватара пользователя -->
             <div class="user-avatar-container">
                 <!-- Аватар пользователя - замените src на путь к вашей фотографии -->
-                <img src="avaRn.jpg" 
+                <img src="/port-1/avaRn.jpg" 
                      alt="Фото Руслана" 
                      class="user-avatar">
                 <!-- Декоративная рамка вокруг аватара -->
@@ -310,14 +388,14 @@
                         </h3>
                         <div class="education-list">
                             <div class="education-item">
-                                <h4 class="education-degree">Магистр компьютерных наук</h4>
-                                <p class="institution">МГТУ им. Баумана • 2018</p>
-                                <p class="education-description">Специализация в области веб-технологий и искусственного интеллекта. Диплом с отличием.</p>
+                                <h4 class="education-degree">Магистр. Инфокоммуникационные технологии и системы связи </h4>
+                                <p class="institution">БФУ им. И. Канта • 2028</p>
+                                <p class="education-description">Системы и сети мобильной радиосвязи.</p>
                             </div>
                             <div class="education-item">
-                                <h4 class="education-degree">Бакалавр информатики</h4>
-                                <p class="institution">МГУ • 2016</p>
-                                <p class="education-description">Фундаментальное образование в области компьютерных наук и математики.</p>
+                                <h4 class="education-degree">Бакалавр. Информационные системы и технологии</h4>
+                                <p class="institution">БФУ им. И. Канта • 2026</p>
+                                <p class="education-description">Информационные и автоматизированные системы обработки информации и управления.</p>
                             </div>
                         </div>
                     </section>
@@ -345,46 +423,38 @@
             </footer>
             <footer class="site-footer">
     <div class="footer-content">
-        <!-- Блок социальных сетей -->
-        <div class="social-section">
-            <h3 class="social-title">Свяжитесь со мной</h3>
+        <!-- Объединенный контент -->
+        <h3 class="footer-title">Свяжитесь со мной</h3>
+        <p class="footer-subtitle">Есть вопросы? Напишите мне!</p>
+        
+        <!-- Социальные сети и кнопка в одной линии -->
+        <div class="footer-actions">
             <div class="social-links">
-                <!-- Ссылка на GitHub -->
                 <a href="https://github.com/yourusername" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <!-- Ссылка на Telegram -->
                 <a href="https://t.me/rsln28" class="social-link" target="_blank" rel="noopener" aria-label="Telegram">
                     <i class="fab fa-telegram"></i>
                 </a>
-                <!-- Ссылка на VK -->
                 <a href="https://vk.com/rrokka" class="social-link" target="_blank" rel="noopener" aria-label="VK">
                     <i class="fab fa-vk"></i>
                 </a>
-                <!-- Ссылка на WhatsApp -->
                 <a href="https://wa.me/79316077768" class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
-        </div>
-
-        <!-- Кнопка email -->
-        <div class="email-section">
-            <p>Есть вопросы? Напишите мне!</p>
+            
             <a href="mailto:твоя_почта@example.com" class="email-button">
                 ✉️ Связаться со мной
             </a>
         </div>
 
-        <!-- Подпись и копирайт -->
-        <div class="footer-bottom">
-            <p class="design-text">desing by Ruslan Ismailov</p>
-            <p class="copyright">© 2024 Все права защищены</p>
-        </div>
+        
     </div>
 </footer>
     </div>
-    <script src="jsport-4.js"></script>
-    <script src="newsjs.js"></script>
+    <script src="/port-1/port-4/JS/jsport-4.js"></script>
+    <script src="/port-1/port-4/JS/newsjs.js"></script>
+    <script src="/port-1/port-4/JS/currency.js"></script>
 </body>
 </html>

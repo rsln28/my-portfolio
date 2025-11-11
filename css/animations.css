@@ -1,0 +1,365 @@
+/* ===== ОСНОВНЫЕ АНИМАЦИИ САЙТА ===== */
+
+/* ===== ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ ===== */
+
+/* Плавное появление снизу */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Плавное появление сверху */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Плавное появление слева */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-40px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Плавное появление справа */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(40px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* ===== АНИМАЦИИ ПАНЕЛЕЙ ===== */
+
+/* Появление левой колонки */
+@keyframes slideInLeftColumn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Появление правой панели погоды */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(-50%);
+    }
+}
+
+/* Появление левой панели */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(-50%);
+    }
+}
+
+/* ===== АНИМАЦИИ КАРТОЧЕК ===== */
+
+/* Подъем карточки при наведении */
+@keyframes cardLift {
+    from {
+        transform: translateY(0);
+        box-shadow: var(--shadow-md);
+    }
+    to {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-2xl);
+    }
+}
+
+/* Пульсация для привлечения внимания */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Дрожание для ошибок */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* ===== АНИМАЦИИ ИКОНОК ===== */
+
+/* Вращение для иконок загрузки */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Вращение рамки аватара */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Покачивание иконки */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -8px, 0);
+    }
+    70% {
+        transform: translate3d(0, -4px, 0);
+    }
+    90% {
+        transform: translate3d(0, -2px, 0);
+    }
+}
+
+/* ===== АНИМАЦИИ ТЕКСТА ===== */
+
+/* Типичный эффект печатания */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Мерцание курсора */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ===== АНИМАЦИИ ФОНА ===== */
+
+/* Плавающие частицы фона */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(10px) rotate(240deg);
+    }
+}
+
+/* Плавное изменение градиента */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ===== АНИМАЦИИ КНОПОК ===== */
+
+/* Эффект нажатия кнопки */
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Эффект заполнения */
+@keyframes fill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* ===== УТИЛИТЫ ДЛЯ АНИМАЦИЙ ===== */
+
+/* Классы для быстрого применения анимаций */
+.animate-fade-in-up {
+    animation: fadeInUp var(--duration-slow) var(--ease-out);
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown var(--duration-slow) var(--ease-out);
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft var(--duration-slow) var(--ease-out);
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight var(--duration-slow) var(--ease-out);
+}
+
+.animate-pulse {
+    animation: pulse 2s var(--ease-in-out) infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s var(--ease-in-out) infinite;
+}
+
+.animate-shake {
+    animation: shake 0.5s var(--ease-in-out);
+}
+
+/* Задержки для последовательных анимаций */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+.animation-delay-800 { animation-delay: 800ms; }
+.animation-delay-900 { animation-delay: 900ms; }
+.animation-delay-1000 { animation-delay: 1000ms; }
+
+/* Длительности анимаций */
+.animation-duration-fast { animation-duration: var(--duration-fast); }
+.animation-duration-normal { animation-duration: var(--duration-normal); }
+.animation-duration-slow { animation-duration: var(--duration-slow); }
+.animation-duration-slower { animation-duration: var(--duration-slower); }
+
+/* ===== АНИМАЦИИ ДЛЯ КОНКРЕТНЫХ ЭЛЕМЕНТОВ ===== */
+
+/* Анимация для карточек сертификатов */
+.certificate-card {
+    animation: fadeInUp var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* Анимация для новостных панелей */
+.news-column {
+    animation: slideInLeftColumn var(--duration-slower) var(--ease-out);
+}
+
+.weather-panel {
+    animation: slideInRight var(--duration-slower) var(--ease-out);
+}
+
+/* Анимация рамки аватара */
+.avatar-frame {
+    animation: rotate 10s linear infinite;
+}
+
+/* Анимация при наведении на карточки */
+.certificate-card:hover {
+    animation: cardLift var(--duration-normal) var(--ease-out) forwards;
+}
+
+.news-item:hover {
+    animation: fadeInLeft var(--duration-fast) var(--ease-out) forwards;
+}
+
+/* ===== АНИМИРОВАННЫЕ ФОНЫ ДЛЯ ПРОФИЛЯ ===== */
+
+/* 1. Анимация плавающих частиц */
+@keyframes floatParticles {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(10px) translateX(-15px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-15px) translateX(-10px) rotate(270deg);
+    }
+}
+
+/* 2. Анимация мерцания (как звездочки) */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+    }
+}
+
+/* 3. Анимация движения градиента */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

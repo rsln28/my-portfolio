@@ -1,0 +1,63 @@
+/* ===== ГЛАВНЫЙ ФАЙЛ СТИЛЕЙ - ИМПОРТ ВСЕХ КОМПОНЕНТОВ ===== */
+
+/* 1. Сначала переменные - основа всего */
+@import url('variables.css');
+
+/* 2. Потом анимации - используют переменные */
+@import url('animations.css');
+
+/* 3. Затем основные стили компонентов */
+@import url('profile.css');
+@import url('certificates.css');
+@import url('footer.css');
+@import url('weather-panel.css');
+@import url('news-panel.css');
+@import url('currency.css')
+
+/* 4. В конце адаптивность - переопределяет стили при необходимости */
+@import url(responsive.css);
+
+/* ===== ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--gradient-primary);
+    min-height: 100vh;
+    padding: var(--spacing-md);
+    line-height: var(--line-height-normal);
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+}
+
+/* Основной контейнер портфолио */
+.portfolio-container {
+    max-width: var(--container-7xl);
+    margin: 0 auto;
+    background: var(--background-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-2xl);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Убираем все возможные полосы прокрутки */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}

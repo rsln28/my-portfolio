@@ -967,3 +967,370 @@ html {
         font-size: 14px;
     }
 }
+
+/* ===== РАСПОЛОЖЕНИЕ 5 ПАНЕЛЕЙ НОВОСТЕЙ ===== */
+
+/* Общие стили для всех новостных панелей */
+.news-panel {
+    position: fixed;
+    width: 260px; /* Немного уменьшили ширину */
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-heavy);
+    z-index: 1000;
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 400px; /* Уменьшили высоту для компактности */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Расположение каждой панели */
+
+/* IT Новости - слева сверху */
+.news-it {
+    top: 20px;
+    left: 20px;
+}
+
+/* Политика - слева по центру */
+.news-politics {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+/* Спорт - слева снизу */
+.news-sports {
+    bottom: 20px;
+    left: 20px;
+}
+
+/* Здоровье - справа сверху */
+.news-health {
+    top: 20px;
+    right: 20px;
+}
+
+/* Технологии - справа по центру (над погодой) */
+.news-tech {
+    top: 35%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+/* Погода - справа снизу */
+.weather-panel {
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    transform: none;
+}
+
+/* Обновляем отступы основного контейнера */
+@media (min-width: 1201px) {
+    .portfolio-container {
+        margin-left: 300px;
+        margin.right: 300px;
+        margin-top: 100px; /* Добавляем отступ сверху */
+        margin-bottom: 100px; /* Добавляем отступ снизу */
+    }
+}
+
+/* Адаптивность для 5 панелей */
+@media (max-width: 1200px) {
+    .news-panel {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto var(--spacing-md);
+    }
+    
+    .weather-panel {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto var(--spacing-md);
+    }
+    
+    .portfolio-container {
+        margin: 0 !important;
+    }
+    
+    /* Порядок отображения на мобильных */
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .news-it { order: 1; }
+    .news-politics { order: 2; }
+    .news-sports { order: 3; }
+    .portfolio-container { order: 4; }
+    .news-health { order: 5; }
+    .news-tech { order: 6; }
+    .weather-panel { order: 7; }
+
+/* ===== ЛЕВАЯ КОЛОНКА С 5 ПАНЕЛЯМИ НОВОСТЕЙ ===== */
+
+/* Основная колонка для новостей */
+.news-column {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto; /* Прокрутка внутри колонки */
+    z-index: 999;
+    padding-right: 10px; /* Место для скроллбара */
+}
+
+/* Скрываем стандартный скроллбар */
+.news-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.news-column::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.news-column::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.news-column::-webkit-scrollbar-thumb:hover {
+    background: #ffed4e;
+}
+
+/* Общие стили для всех новостных панелей */
+.news-panel {
+    width: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-heavy);
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0; /* Запрещаем сжиматься */
+}
+
+/* Контейнер новостей */
+.news-container {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    height: 280px; /* Фиксированная высота для каждой панели */
+}
+
+/* Заголовок панели новостей */
+.news-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.news-icon {
+    font-size: 1.5em;
+    color: var(--accent-color);
+}
+
+.news-title {
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Список новостей */
+.news-list {
+    flex: 1;
+    overflow-y: hidden; /* Убираем прокрутку внутри панели */
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Элемент новости */
+.news-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--accent-color);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.news-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+/* Время новости */
+.news-time {
+    font-size: 0.7em;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* Заголовок новости */
+.news-headline {
+    font-size: 0.9em;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+/* Краткое описание новости */
+.news-preview {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Блок обновления */
+.news-update {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.news-update-icon {
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.news-update-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.news-update-text {
+    font-style: italic;
+}
+
+/* ===== ОБНОВЛЯЕМ РАСПОЛОЖЕНИЕ ПОГОДЫ ===== */
+
+/* Погода - справа */
+.weather-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 280px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-heavy);
+    z-index: 1000;
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+/* ===== ОБНОВЛЯЕМ ОТСТУПЫ ОСНОВНОГО КОНТЕЙНЕРА ===== */
+
+@media (min-width: 1201px) {
+    .portfolio-container {
+        margin-left: 360px; /* Место для левой колонки */
+        margin-right: 320px; /* Место для погоды */
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ===== */
+
+@media (max-width: 1200px) {
+    .news-column {
+        position: relative;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto var(--spacing-lg);
+        padding-right: 0;
+        max-height: none;
+    }
+    
+    .weather-panel {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto var(--spacing-lg);
+    }
+    
+    .portfolio-container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Порядок отображения на мобильных */
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .news-column { order: 1; }
+    .portfolio-container { order: 2; }
+    .weather-panel { order: 3; }
+}
+
+@media (max-width: 768px) {
+    .news-container {
+        height: 250px; /* Немного уменьшаем высоту на мобильных */
+        padding: var(--spacing-sm);
+    }
+    
+    .news-column {
+        gap: 15px;
+    }
+}
+
+/* Анимация появления колонки */
+@keyframes slideInLeftColumn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.news-column {
+    animation: slideInLeftColumn 0.8s var(--transition-slow);
+}}

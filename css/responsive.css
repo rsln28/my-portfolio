@@ -1,0 +1,354 @@
+/* ===== АДАПТИВНЫЕ СТИЛИ ДЛЯ ВСЕХ УСТРОЙСТВ ===== */
+
+/* ===== МОБИЛЬНЫЕ УСТРОЙСТВА (до 768px) ===== */
+@media (max-width: 768px) {
+    
+    /* Основные настройки */
+    body {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Контейнер портфолио */
+    .portfolio-container {
+        border-radius: var(--radius-md);
+        margin: 0;
+    }
+    
+    /* ===== ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ ===== */
+    .user-profile {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .user-name {
+        font-size: var(--font-size-3xl);
+        line-height: var(--line-height-tight);
+    }
+    
+    .user-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .user-description {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-relaxed);
+    }
+    
+    .user-contacts {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: center;
+    }
+    
+    .user-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* ===== СЕРТИФИКАТЫ ===== */
+    .certificates-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-xs);
+    }
+    
+    .certificate-card {
+        padding: var(--spacing-md) var(--spacing-sm);
+        min-height: 240px;
+    }
+    
+    .certificate-icon {
+        font-size: 2.5em;
+    }
+    
+    .certificate-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    /* ===== ОБРАЗОВАНИЕ И ФУТЕР ===== */
+    .info-section {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+    
+    .info-title {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .info-block {
+        padding: var(--spacing-md);
+    }
+    
+    .social-links {
+        gap: var(--spacing-sm);
+    }
+    
+    .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: var(--font-size-lg);
+    }
+    
+    /* ===== ПАНЕЛИ НОВОСТЕЙ И ПОГОДЫ ===== */
+    .news-column {
+        position: relative;
+        left: auto;
+        top: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto var(--spacing-lg);
+        padding-right: 0;
+        max-height: none;
+        gap: var(--spacing-md);
+    }
+    
+    .weather-panel {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto var(--spacing-lg);
+    }
+    
+    .news-container {
+        height: 240px;
+        padding: var(--spacing-sm);
+    }
+    
+    .weather-container {
+        padding: var(--spacing-sm);
+    }
+    
+    /* ===== ОБЩИЕ ИСПРАВЛЕНИЯ ===== */
+    .portfolio-container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Порядок отображения на мобильных */
+    body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .news-column { order: 1; }
+    .portfolio-container { order: 2; }
+    .weather-panel { order: 3; }
+}
+
+/* ===== ПЛАНШЕТЫ (769px - 1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    
+    /* Основные настройки */
+    body {
+        padding: var(--spacing-md);
+    }
+    
+    /* Контейнер портфолио */
+    .portfolio-container {
+        margin: 0 auto;
+    }
+    
+    /* Панели новостей и погоды */
+    .news-column {
+        width: 300px;
+    }
+    
+    .weather-panel {
+        width: 260px;
+    }
+    
+    /* Отступы основного контента */
+    .portfolio-container {
+        margin-left: 330px;
+        margin-right: 280px;
+    }
+    
+    /* Сетка сертификатов */
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    /* Профиль пользователя */
+    .user-avatar {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .user-name {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+/* ===== НОУТБУКИ (1025px - 1200px) ===== */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    
+    /* Панели новостей и погоды */
+    .news-column {
+        width: 320px;
+    }
+    
+    .weather-panel {
+        width: 280px;
+    }
+    
+    /* Отступы основного контента */
+    .portfolio-container {
+        margin-left: 350px;
+        margin-right: 300px;
+    }
+    
+    /* Сетка сертификатов */
+    .certificates-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ===== БОЛЬШИЕ ЭКРАНЫ (1201px и больше) ===== */
+@media (min-width: 1201px) {
+    
+    /* Панели новостей и погоды */
+    .news-column {
+        width: 320px;
+    }
+    
+    .weather-panel {
+        width: 250px;
+    }
+    
+    /* Отступы основного контента */
+    .portfolio-container {
+        margin-left: 360px;
+        margin-right: 320px;
+    }
+    
+    /* Сетка сертификатов */
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ===== ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 480px) ===== */
+@media (max-width: 480px) {
+    
+    /* Еще более компактные стили */
+    body {
+        padding: var(--spacing-xs);
+    }
+    
+    .user-name {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .section-title,
+    .info-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .certificate-card {
+        min-height: 220px;
+    }
+    
+    .user-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .news-container {
+        height: 220px;
+    }
+    
+    /* Улучшаем читаемость на маленьких экранах */
+    .news-headline {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-tight);
+    }
+    
+    .news-preview {
+        font-size: var(--font-size-xs);
+        line-height: var(--line-height-normal);
+    }
+}
+
+/* ===== ЛАНДШАФТНАЯ ОРИЕНТАЦИЯ ===== */
+@media (max-height: 600px) and (orientation: landscape) {
+    
+    /* Компактный режим для низких экранов */
+    .news-column {
+        max-height: 80vh;
+    }
+    
+    .news-container {
+        height: 200px;
+    }
+    
+    .user-profile {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .user-avatar {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ===== ВЫСОКОПИКСЕЛЬНЫЕ ЭКРАНЫ (Retina) ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    
+    /* Улучшаем качество для Retina дисплеев */
+    .user-avatar {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ===== ТЕМНАЯ ТЕМА (если добавишь в будущем) ===== */
+@media (prefers-color-scheme: dark) {
+    /* Можно добавить автоматическую темную тему */
+}
+
+/* ===== СНИЖЕННАЯ АНИМАЦИЯ ===== */
+@media (prefers-reduced-motion: reduce) {
+    
+    /* Отключаем анимации для пользователей */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== ВЫСОКИЙ КОНТРАСТ ===== */
+@media (prefers-contrast: high) {
+    
+    /* Увеличиваем контраст для доступности */
+    .certificate-card {
+        border: 2px solid var(--text-dark);
+    }
+    
+    .news-item {
+        border-left: 4px solid var(--accent-color);
+    }
+}

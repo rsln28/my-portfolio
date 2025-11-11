@@ -1,112 +1,236 @@
-// newsjs.js - автоматические новости для IT-разработчика
+// newsjs.js - 5 панелей новостей с реальным API
 
-class NewsWidget {
+class AdvancedNewsWidget {
     constructor() {
-        this.newsElements = {
-            list: document.querySelector('.news-list'),
-            updateText: document.querySelector('.news-update-text'),
-            updateIcon: document.querySelector('.news-update-icon')
+        // API ключ от NewsAPI (БЕСПЛАТНЫЙ - нужно зарегистрироваться)
+        this.API_KEY = 'e9ed78d29fd54eeeb7dcb2e0118e15a6'; // ← ЗАМЕНИ НА СВОЙ КЛЮЧ
+        
+        // Настройки для каждой панели
+        this.panels = {
+            'news-it': {
+                title: 'IT Новости',
+                category: 'technology',
+                icon: 'fa-laptop-code',
+                sources: 'techcrunch,wired' // IT источники
+            },
+            'news-politics': {
+                title: 'Политика',
+                category: 'politics', 
+                icon: 'fa-landmark',
+                sources: 'bbc-news,cnn'
+            },
+            'news-sports': {
+                title: 'Спорт',
+                category: 'sports',
+                icon: 'fa-running',
+                sources: 'espn,bbc-sport'
+            },
+            'news-health': {
+                title: 'Здоровье',
+                category: 'health',
+                icon: 'fa-heartbeat',
+                sources: 'medical-news-today'
+            },
+            'news-tech': {
+                title: 'Технологии',
+                category: 'technology',
+                icon: 'fa-robot',
+                sources: 'ars-technica,engadget'
+            }
         };
         
         this.init();
     }
 
     init() {
-        this.loadNews(); // Первая загрузка
+        // Загружаем новости для всех панелей
+        this.loadAllNews();
         
         // Автообновление каждые 2 часа
-        setInterval(() => this.loadNews(), 2 * 60 * 60 * 1000);
+        setInterval(() => this.loadAllNews(), 2 * 60 * 60 * 1000);
         
-        // Клик для обновления
-        this.addUpdateOnClick();
-        
-        // Показываем разные новости каждые 30 секунд (для демо)
-        setInterval(() => this.rotateNews(), 30000);
+        // Добавляем клики для обновления
+        this.addUpdateButtons();
     }
 
-    // Умная генерация правдоподобных IT-новостей
-    generateITNews() {
-        const topics = [
-            {
-                headline: "В Калининграде открылся новый IT-парк",
-                preview: "Современный центр для разработчиков и стартапов с коворкингом на 200 мест",
-                time: this.getRandomTime()
-            },
-            {
-                headline: "JavaScript стал самым популярным языком",
-                preview: "Согласно исследованию Stack Overflow 2024, JS лидирует 9-й год подряд",
-                time: this.getRandomTime()
-            },
-            {
-                headline: "Российские разработчики создали новый фреймворк",
-                preview: "Инновационное решение для веб-разработки уже тестируется в крупных компаниях",
-                time: this.getRandomTime()
-            },
-            {
-                headline: "Веб-разработчики Калининграда объединяются",
-                preview: "Создано сообщество для обмена опытом и совместных проектов",
-                time: this.getRandomTime()
-            },
-            {
-                headline: "TypeScript обогнал JavaScript в рейтинге",
-                preview: "Разработчики предпочитают типизированные языки для больших проектов",
-                time: this.getRandomTime()
-            },
-            {
-                headline: "Новые технологии в веб-разработке 2024",
-                preview: "Обзор самых перспективных инструментов и фреймворков этого года",
-                time: this.getRandomTime()
-            }
-        ];
-        
-        // Возвращаем случайные 3 новости
-        return this.shuffleArray(topics).slice(0, 3);
-    }
-
-    // Случайное время для новости
-    getRandomTime() {
-        const times = [
-            "Только что", "5 мин", "15 мин", "30 мин", "1 ч", 
-            "2 ч", "4 ч", "Сегодня", "Вчера"
-        ];
-        return times[Math.floor(Math.random() * times.length)];
-    }
-
-    // Перемешиваем массив
-    shuffleArray(array) {
-        return array.sort(() => Math.random() - 0.5);
-    }
-
-    // Загружаем новости
-    async loadNews() {
-        try {
-            this.setLoadingState(true);
-            
-            // Используем сгенерированные новости
-            const news = this.generateITNews();
-            
-            this.displayNews(news);
-            this.setLoadingState(false);
-            this.updateTimestamp();
-            
-        } catch (error) {
-            console.log('Ошибка загрузки новостей:', error);
-            const fallbackNews = this.generateITNews();
-            this.displayNews(fallbackNews);
+    // Загружаем новости для всех панелей
+    async loadAllNews() {
+        for (const [panelId, panelConfig] of Object.entries(this.panels)) {
+            await this.loadPanelNews(panelId, panelConfig);
+            // Небольшая задержка между запросами чтобы не перегружать API
+            await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
 
-    // Показываем новости на странице
-    displayNews(news) {
-        this.newsElements.list.innerHTML = '';
+    // Загружаем новости для конкретной панели
+    async loadPanelNews(panelId, panelConfig) {
+        try {
+            this.setLoadingState(panelId, true);
+            
+            // Пробуем получить реальные новости
+            const realNews = await this.fetchRealNews(panelConfig);
+            const news = realNews || this.getFallbackNews(panelConfig.category);
+            
+            this.displayNews(panelId, news);
+            this.setLoadingState(panelId, false);
+            this.updateTimestamp(panelId);
+            
+        } catch (error) {
+            console.log(`Ошибка загрузки новостей для ${panelId}:`, error);
+            const fallbackNews = this.getFallbackNews(panelConfig.category);
+            this.displayNews(panelId, fallbackNews);
+        }
+    }
+
+    // Получаем реальные новости через NewsAPI
+    async fetchRealNews(panelConfig) {
+        // Если API ключ не установлен, возвращаем null
+        if (this.API_KEY === 'твой_api_ключ_здесь') {
+            return null;
+        }
+
+        try {
+            // NewsAPI endpoint для топовых новостей по категории
+            const url = `https://newsapi.org/v2/top-headlines?category=${panelConfig.category}&language=ru&pageSize=3&apiKey=${this.API_KEY}`;
+            
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (data.articles && data.articles.length > 0) {
+                return data.articles.slice(0, 3).map(article => ({
+                    headline: article.title,
+                    preview: article.description || 'Описание недоступно',
+                    time: this.formatTime(article.publishedAt),
+                    url: article.url
+                }));
+            }
+            
+            return null;
+            
+        } catch (error) {
+            console.log('NewsAPI error:', error);
+            return null;
+        }
+    }
+
+    // Форматируем время публикации
+    formatTime(publishedAt) {
+        const now = new Date();
+        const articleTime = new Date(publishedAt);
+        const diffHours = Math.floor((now - articleTime) / (1000 * 60 * 60));
+        
+        if (diffHours < 1) return 'Только что';
+        if (diffHours < 24) return `${diffHours} ч назад`;
+        return `${Math.floor(diffHours / 24)} д назад`;
+    }
+
+    // Запасные новости если API не работает
+    getFallbackNews(category) {
+        const newsTemplates = {
+            technology: [
+                {
+                    headline: "Искусственный интеллект создает код быстрее разработчиков",
+                    preview: "Новые модели ИИ показывают впечатляющие результаты в генерации кода",
+                    time: "2 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "TypeScript 5.0 выходит с новыми функциями",
+                    preview: "Major обновление популярного языка программирования",
+                    time: "5 ч назад", 
+                    url: "#"
+                },
+                {
+                    headline: "Кибербезопасность: новые вызовы 2024",
+                    preview: "Эксперты обсуждают современные угрозы для веб-приложений",
+                    time: "1 д назад",
+                    url: "#"
+                }
+            ],
+            politics: [
+                {
+                    headline: "Международные встречи на высшем уровне",
+                    preview: "Обсуждение глобальных экономических вопросов",
+                    time: "3 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "Новые законодательные инициативы",
+                    preview: "Парламент рассматривает важные законопроекты",
+                    time: "6 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "Экономическое развитие регионов",
+                    preview: "Программы поддержки малого бизнеса",
+                    time: "1 д назад",
+                    url: "#"
+                }
+            ],
+            sports: [
+                {
+                    headline: "Футбольный матч чемпионата завершился победой",
+                    preview: "Зрелищная игра с большим количеством голов",
+                    time: "1 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "Подготовка к Олимпийским играм",
+                    preview: "Сборные страны усиленно тренируются",
+                    time: "4 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "Новые рекорды в легкой атлетике",
+                    preview: "Спортсмены показывают выдающиеся результаты",
+                    time: "1 д назад",
+                    url: "#"
+                }
+            ],
+            health: [
+                {
+                    headline: "Новое исследование о здоровом питании",
+                    preview: "Ученые раскрывают секреты долголетия",
+                    time: "2 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "Прорыв в медицинских технологиях",
+                    preview: "Инновационные методы диагностики заболеваний",
+                    time: "5 ч назад",
+                    url: "#"
+                },
+                {
+                    headline: "Советы по ментальному здоровью",
+                    preview: "Эксперты рекомендуют методы борьбы со стрессом",
+                    time: "1 д назад",
+                    url: "#"
+                }
+            ]
+        };
+        
+        return newsTemplates[category] || newsTemplates.technology;
+    }
+
+    // Показываем новости в панели
+    displayNews(panelId, news) {
+        const newsList = document.querySelector(`.${panelId} .news-list`);
+        if (!newsList) return;
+        
+        newsList.innerHTML = '';
         
         news.forEach(item => {
             const newsElement = this.createNewsElement(item);
-            this.newsElements.list.appendChild(newsElement);
+            newsList.appendChild(newsElement);
         });
     }
 
-    // Создаем HTML элемент новости
+    // Создаем элемент новости
     createNewsElement(newsItem) {
         const article = document.createElement('article');
         article.className = 'news-item';
@@ -118,49 +242,60 @@ class NewsWidget {
         
         // Клик по новости
         article.addEventListener('click', () => {
-            this.showNewsDetail(newsItem);
+            if (newsItem.url && newsItem.url !== '#') {
+                window.open(newsItem.url, '_blank');
+            } else {
+                this.showNewsDetail(newsItem);
+            }
         });
         
         return article;
     }
 
-    // Детальная информация новости
+    // Детальная информация
     showNewsDetail(newsItem) {
         alert(`📰 ${newsItem.headline}\n\n${newsItem.preview}\n\nВремя: ${newsItem.time}`);
     }
 
-    // Смена новостей (для демонстрации)
-    rotateNews() {
-        const newNews = this.generateITNews();
-        this.displayNews(newNews);
-    }
-
     // Статус загрузки
-    setLoadingState(loading) {
-        if (loading) {
-            this.newsElements.updateIcon.classList.add('fa-spin');
-        } else {
-            this.newsElements.updateIcon.classList.remove('fa-spin');
+    setLoadingState(panelId, loading) {
+        const updateIcon = document.querySelector(`.${panelId} .news-update-icon`);
+        if (updateIcon) {
+            if (loading) {
+                updateIcon.classList.add('fa-spin');
+            } else {
+                updateIcon.classList.remove('fa-spin');
+            }
         }
     }
 
     // Время обновления
-    updateTimestamp() {
-        const now = new Date();
-        this.newsElements.updateText.textContent = 
-            `Обновлено ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+    updateTimestamp(panelId) {
+        const updateText = document.querySelector(`.${panelId} .news-update-text`);
+        if (updateText) {
+            const now = new Date();
+            updateText.textContent = 
+                `Обновлено ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+        }
     }
 
-    // Клик для обновления
-    addUpdateOnClick() {
-        this.newsElements.updateIcon.style.cursor = 'pointer';
-        this.newsElements.updateIcon.title = 'Обновить новости';
-        this.newsElements.updateIcon.addEventListener('click', () => this.loadNews());
+    // Кнопки обновления
+    addUpdateButtons() {
+        Object.keys(this.panels).forEach(panelId => {
+            const updateIcon = document.querySelector(`.${panelId} .news-update-icon`);
+            if (updateIcon) {
+                updateIcon.style.cursor = 'pointer';
+                updateIcon.title = 'Обновить новости';
+                updateIcon.addEventListener('click', () => {
+                    this.loadPanelNews(panelId, this.panels[panelId]);
+                });
+            }
+        });
     }
 }
 
 // Запускаем когда страница загрузится
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('📰 Запускаем виджет новостей...');
-    new NewsWidget();
+    console.log('📰 Запускаем расширенный виджет новостей...');
+    new AdvancedNewsWidget();
 });

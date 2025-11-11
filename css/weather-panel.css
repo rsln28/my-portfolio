@@ -1,0 +1,184 @@
+/* ===== СТИЛИ ДЛЯ ПАНЕЛИ ПОГОДЫ ===== */
+.weather-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 250px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-heavy);
+    z-index: 1000;
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.weather-container {
+    padding: var(--spacing-md);
+    overflow: hidden;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-icon {
+    font-size: 1.5em;
+    color: var(--accent-color);
+}
+
+.weather-title {
+    font-size: 1em;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.weather-main {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.temperature {
+    font-size: 2.5em;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.weather-description {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+}
+
+.weather-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    overflow: hidden;
+}
+
+.weather-item i {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.weather-value {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.weather-forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.forecast-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.forecast-day {
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+.forecast-icon {
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+
+.forecast-temp {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.weather-update {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding-top: var(--spacing-xs);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8em;
+    opacity: 0.7;
+    overflow: hidden;
+}
+
+.update-icon {
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.update-text {
+    font-style: italic;
+}
+
+/* Анимация для панели погоды */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(-50%);
+    }
+}
+
+.weather-panel {
+    animation: slideInRight 0.8s var(--transition-slow);
+}
+
+/* Адаптивность погоды */
+@media (max-width: 1200px) {
+    .weather-panel {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .weather-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .weather-panel {
+        max-width: 100%;
+        margin: 0 auto var(--spacing-md);
+    }
+}
